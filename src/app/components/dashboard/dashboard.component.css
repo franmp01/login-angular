@@ -1,0 +1,20 @@
+
+.container{
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  background-color: skyblue;;
+}
+.nav{
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+a{
+  color: white;
+  margin: 5px;
+}
+a:hover{
+  color: skyblue;
+}
+
