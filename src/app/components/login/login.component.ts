@@ -1,12 +1,35 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  email: string = '';
+  password: string = '';
+  nombre: string = '';
+  showLogin: boolean = true; // Controla si se muestra el formulario de inicio de sesión
 
+  toggleForm(): void {
+    this.showLogin = !this.showLogin; // Alterna entre los formularios
+  }
+  constructor(private UserService :UserService){}
+  login(email: string, password: string): void {
+    if (this.UserService.validar(email, password)) {
+      console.log('Login successful');
+    } else {
+      console.log('Invalid credentials');
+    }
+  }
+  registrar(nombre: string,  email: string, password: string): void {
+    this.UserService.registrar(nombre, email, password);
+
+
+  }
 }

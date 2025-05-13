@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div class="container">
+  <!-- Formulario de Inicio de Sesión -->
+  <div class="form-container" *ngIf="showLogin">
+    <h2>Iniciar Sesión</h2>
+    <form (ngSubmit)="login(email, password)">
+      <div class="form-group">
+        <label for="email1">Email</label>
+        <input id="email1" type="email" [(ngModel)]="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="password1">Contraseña</label>
+        <input id="password1" type="password" [(ngModel)]="password" name="password" required />
+      </div>
+      <button type="submit" class="btn">Iniciar Sesión</button>
+    </form>
+    <button class="btn toggle-btn" (click)="toggleForm()">¿No tienes cuenta? Regístrate</button>
+  </div>
+
+  <!-- Formulario de Registro -->
+  <div class="form-container" *ngIf="!showLogin">
+    <h2>Registro</h2>
+    <form (ngSubmit)="registrar(nombre, email, password)">
+      <div class="form-group">
+        <label for="nombre2">Nombre de Usuario</label>
+        <input id="nombre2" type="text" [(ngModel)]="nombre" name="nombre" required />
+      </div>
+      <div class="form-group">
+        <label for="email2">Email</label>
+        <input id="email2" type="email" [(ngModel)]="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="password2">Contraseña</label>
+        <input id="password2" type="password" [(ngModel)]="password" name="password" required />
+      </div>
+      <button type="submit" class="btn">Registrarse</button>
+    </form>
+    <button class="btn toggle-btn" (click)="toggleForm()">¿Ya tienes cuenta? Inicia Sesión</button>
+  </div>
+</div>
