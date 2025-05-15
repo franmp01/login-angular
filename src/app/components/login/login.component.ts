@@ -11,9 +11,12 @@ import { UserService } from '../../services/user.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  email: string = '';
-  password: string = '';
-  nombre: string = '';
+  emailRegistro: string = '';
+  passwordRegistro: string = '';
+  nombreRegistro: string = '';
+  dniRegistro: string = '';
+  emailLogin: string = '';
+  passwordLogin: string = '';
   showLogin: boolean = true; // Controla si se muestra el formulario de inicio de sesión
 
   toggleForm(): void {
@@ -21,14 +24,18 @@ export class LoginComponent {
   }
   constructor(private UserService :UserService){}
   login(email: string, password: string): void {
-    if (this.UserService.validar(email, password)) {
-      console.log('Login successful');
-    } else {
-      console.log('Invalid credentials');
-    }
+    let usuario = this.UserService.validar(email, password);
+    usuario.subscribe((data) => {
+      if (data.length > 0) {
+        console.log('Usuario encontrado');
+        console.log(data);
+      } else {
+        console.log('Usuario no encontrado');
+      }
+    });
   }
-  registrar(nombre: string,  email: string, password: string): void {
-    this.UserService.registrar(nombre, email, password);
+  registrar(dni: string, nombre: string,  email: string, password: string): void {
+    this.UserService.registrar(dni, nombre, email, password);
 
 
   }

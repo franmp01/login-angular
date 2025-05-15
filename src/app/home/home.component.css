@@ -5,5 +5,11 @@ p{
   margin-top: 20px;
   font-family: Arial, sans-serif;
   font-weight: bold;
-
 }
+
+  mat-form-field{
+    text-align: center;
+    margin-left: 100px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+  }

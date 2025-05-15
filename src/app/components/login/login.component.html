@@ -2,14 +2,14 @@
   <!-- Formulario de Inicio de Sesión -->
   <div class="form-container" *ngIf="showLogin">
     <h2>Iniciar Sesión</h2>
-    <form (ngSubmit)="login(email, password)">
+    <form (ngSubmit)="login(emailLogin, passwordLogin)">
       <div class="form-group">
         <label for="email1">Email</label>
-        <input id="email1" type="email" [(ngModel)]="email" name="email" required />
+        <input id="email1" type="email" [(ngModel)]="emailLogin" name="email" required />
       </div>
       <div class="form-group">
         <label for="password1">Contraseña</label>
-        <input id="password1" type="password" [(ngModel)]="password" name="password" required />
+        <input id="password1" type="password" [(ngModel)]="passwordLogin" name="password" required />
       </div>
       <button type="submit" class="btn">Iniciar Sesión</button>
     </form>
@@ -19,18 +19,22 @@
   <!-- Formulario de Registro -->
   <div class="form-container" *ngIf="!showLogin">
     <h2>Registro</h2>
-    <form (ngSubmit)="registrar(nombre, email, password)">
+    <form (ngSubmit)="registrar(dniRegistro, nombreRegistro, emailRegistro, passwordRegistro)">
       <div class="form-group">
         <label for="nombre2">Nombre de Usuario</label>
-        <input id="nombre2" type="text" [(ngModel)]="nombre" name="nombre" required />
+        <input id="nombre2" type="text" [(ngModel)]="nombreRegistro" name="nombre2" required />
+      </div>
+      <div class="form-group">
+        <label for="dni">DNI del usuario</label>
+        <input id="dni" type="text" [(ngModel)]="dniRegistro" name="dni" required />
       </div>
       <div class="form-group">
         <label for="email2">Email</label>
-        <input id="email2" type="email" [(ngModel)]="email" name="email" required />
+        <input id="email2" type="email" [(ngModel)]="emailRegistro" name="email2" required />
       </div>
       <div class="form-group">
         <label for="password2">Contraseña</label>
-        <input id="password2" type="password" [(ngModel)]="password" name="password" required />
+        <input id="password2" type="password" [(ngModel)]="passwordRegistro" name="password2" required />
       </div>
       <button type="submit" class="btn">Registrarse</button>
     </form>

@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": "06296212P",
+      "name": "Fran Moreno",
+      "email": "franmorenopecofmp@gmail.com",
+      "password": "30092001",
+      "role": "admin"
+    },
+    {
+      "id": 1,
+      "name": "Silvia",
+      "email": "asasa@gmail.com",
+      "password": "30092001",
+      "role": "user"
+    },
+    {
+      "id": 2,
+      "name": "Luis ",
+      "email": "luis@gmail.com",
+      "password": "1234",
+      "role": "user"
+    },
+    {
+      "id": "06213231P",
+      "name": "franmp",
+      "email": "fran1moreno2peco@gmail.com",
+      "password": "30092001",
+      "role": "user"
+    },
+    {
+      "id": "fasdfafafaf",
+      "name": "fasfa",
+      "email": "aaa@gmail.com",
+      "password": "1234",
+      "role": "user"
+    }
+  ],
+  "pets": [
+    {
+      "id": "123456789",
+      "dni_titular": "06296212P",
+      "nombre": "Ali",
+      "raza": "Bodeguero",
+      "fecha_nacimiento": "2020-01-01",
+      "sexo": "Hembra"
+    }
+  ],
+  "appointments": {}
+}

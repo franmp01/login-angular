@@ -1,22 +1,26 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user/User';
-
+import { HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   users: User[] = []
+  url: string = 'http://localhost:3000/users';
 
-  validar(email: string, password: string): boolean {
-    const user = this.users.find(user => user.email === email && user.password === password);
-    return user !== undefined;
+  constructor(private http:HttpClient) { }
+
+
+  validar(email: string, password: string): Observable<User[]> {
+    const ruta = `${this.url}?email=${email}&password=${password}`;
+    return this.http.get<User[]>(ruta,{params:{"email":email,"password":password}});
   }
-  registrar(nombre: string, email: string, password: string): void {
-    const id = this.users.length + 1;
-    const newUser = new User(id, nombre, email, password, 'user');
+  registrar(dni: string, nombre: string, email: string, password: string): void {
+    const newUser = new User(dni, nombre, email, password, 'user');
     this.users.push(newUser);
-
-    console.log('Usuario registrado');
-    console.log(this.users);
+    this.http.post(this.url, newUser).subscribe((response) => {
+      console.log('Usuario registrado:', response);
+    });
   }
 }
